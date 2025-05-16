@@ -7,11 +7,13 @@ const Blog = require('./models/blog');
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI = "mongodb+srv://OmarDB:omar123@mycluster.wkgse.mongodb.net/OmarDB?retryWrites=true&w=majority&appName=MyCluster";
+const dbURI = process.env.DB_URI || "mongodb+srv://OmarDB:omar123@mycluster.wkgse.mongodb.net/OmarDB?retryWrites=true&w=majority&appName=MyCluster";
+
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(result => app.listen(3000))
+  .then(result => app.listen(3000, () => console.log('Server running on port 3000')))
   .catch(err => console.log(err));
+
 
 // register view engine
 app.set('view engine', 'ejs');
