@@ -6,8 +6,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: omar
-      MONGO_INITDB_ROOT_PASSWORD: omar123
+      MONGO_INITDB_ROOT_USERNAME: "Your username"
+      MONGO_INITDB_ROOT_PASSWORD: "Your password"
     volumes:
       - mongo_data:/data/db
 
